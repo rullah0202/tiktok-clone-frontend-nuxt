@@ -100,6 +100,10 @@ onMounted(() => {
             showMenu.value = false
         }
     });
+
+	    //     if(e.repeat){
+        //     alert("do not repeat")
+        // }
 })
 
 const isLoggedIn = () => {
@@ -110,10 +114,10 @@ const isLoggedIn = () => {
     }
 }
 
-const logout = () => {
+const logout = async() => {
     try {
-        $userStore.logout()
-        router.push('/')
+        await $userStore.logout()
+        window.location.href = '/';
     } catch (error) {
         console.log(error)
     }

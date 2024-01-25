@@ -47,6 +47,7 @@
             class="w-full text-[17px] font-semibold text-white bg-[#F02C56] py-3 rounded-sm"
         >
             Sign up
+            <Icon v-if="isRegister" name="eos-icons:loading" size="25"/>
         </button>
     </div>
 </template>
@@ -60,8 +61,11 @@ let password = ref(null)
 let confirmPassword = ref(null)
 let errors = ref(null)
 
+let isRegister = ref(false)
+
 const register = async () => {
     errors.value = null
+    isRegister.value = true
 
     try {
         await $userStore.getTokens()
@@ -77,6 +81,7 @@ const register = async () => {
         $generalStore.isLoginOpen = false
     } catch (error) {
         console.log(error)
+        isRegister.value = false
         errors.value = error.response.data.errors
     }
 }

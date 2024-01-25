@@ -40,6 +40,9 @@ export const useGeneralStore = defineStore('general', {
           switch (error.response.status) {
               case 401: // Not logged in
               case 419: // Session expired
+                  useUserStore().resetUser()
+                  window.location.href = '/';
+                  break;
               case 503: // Down for maintenance
                   // Bounce the user to the login screen with a redirect back
                   useUserStore().resetUser()

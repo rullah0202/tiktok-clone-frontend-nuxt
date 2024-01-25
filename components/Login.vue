@@ -30,6 +30,7 @@
             class="w-full text-[17px] font-semibold text-white py-3 rounded-sm"
         >
             Log in
+            <Icon v-if="isLogging" name="eos-icons:loading" size="25"/>
         </button>
     </div>
 </template>
@@ -41,8 +42,11 @@ let email = ref(null)
 let password = ref(null)
 let errors = ref(null)
 
+let isLogging = ref(false)
+
 const login = async () => {
     errors.value = null
+    isLogging.value = true
 
     try {
         await $userStore.getTokens()
@@ -52,6 +56,7 @@ const login = async () => {
         await $generalStore.getRandomUsers('following')
         $generalStore.isLoginOpen = false
     } catch (error) {
+        isLogging.value = false
         errors.value = error.response.data.errors
     }
 }
