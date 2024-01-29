@@ -96,14 +96,14 @@ let showMenu = ref(false)
 onMounted(() => {
     document.addEventListener('mouseup', function(e) {
         let popupMenu = document.getElementById('PopupMenu');
-        if (!popupMenu.contains(e.target)) {
+        if (
+            popupMenu &&
+            !popupMenu.contains(e.target)
+        ) {
+            popupMenu.blur()
             showMenu.value = false
         }
     });
-
-	    //     if(e.repeat){
-        //     alert("do not repeat")
-        // }
 })
 
 const isLoggedIn = () => {
