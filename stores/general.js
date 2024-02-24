@@ -39,7 +39,8 @@ export const useGeneralStore = defineStore('general', {
       }, (error) => {
           switch (error.response.status) {
               case 401: // Not logged in
-              case 419: // Session expired
+            case 419: // Session expired
+                  alert('Oops, session expired! Please log in again.');
                   useUserStore().resetUser()
                   window.location.href = '/';
                   break;
