@@ -92,10 +92,10 @@ let video = ref(null)
 
 onMounted(() => {
     let observer = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting && video.value) {
             console.log('Element is playing' + post.value.id);
             video.value.play()
-        } else {
+        } else if(video.value) {
             console.log('Element is paused' + post.value.id);
             video.value.pause()
         }
