@@ -1,7 +1,7 @@
 <template>
     <div 
         id="AuthOverlay" 
-        class="fixed flex items-center justify-center z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50"
+        class="fixed flex items-center justify-center z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 overflow-auto"
     >
         <div class="relative bg-white w-full max-w-[470px] h-[80%] p-4 rounded-lg">
 
