@@ -1,7 +1,7 @@
 <template>
     <div 
         id="EditProfileOverlay" 
-        class="fixed flex justify-center pt-14 md:pt-[105px] z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 overflow-auto"
+        class="fixed flex justify-center pt-14 md:pt-[55px] z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 overflow-auto"
     >
         <div 
             class="relative bg-white w-full max-w-[700px] sm:h-[580px] h-[655px] mx-3 p-4 rounded-lg mb-10"
